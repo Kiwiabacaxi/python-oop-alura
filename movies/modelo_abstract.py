@@ -109,6 +109,7 @@ for programa in filmes_e_series:
     print("____________________")
 
 demolidor = Serie("Demolidor", 2016, 2)
+filmes_e_series.append(demolidor)
 
 print("\nPLAYLIST\n____________________")
 # criar uma playlist
