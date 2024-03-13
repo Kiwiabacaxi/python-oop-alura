@@ -42,9 +42,31 @@ class Serie(Programa):
     def __str__(self):
         return super().__str__() + f" - {self.temporadas} temporadas"
 
+    # metodo
+    def print_class(self):
+        # printa o nome da classe
+        print(self.__class__.__name__)
+
+    # metodo com  @classmethod
+    @classmethod
+    def print_class2(cls):
+        """Método de classe com decorator @classmethod, recebe a classe como parametro implicito no primeiro arg"""
+        # printa o nome da classe
+        print(cls.__name__)
+
+    # metodo estatico
+    @staticmethod
+    def print_class3():
+        """Método estático não recebe a classe como parametro implicito -> inutil ?????????"""
+        # printa o nome da classe na mao
+        print("Serie")
+
 
 filme_do_pele = Filme("Filme do Pelé", 2021, 110)
 print(filme_do_pele)
 
 man_on_the_high_castle = Serie("O Homem do Castelo Alto", 2015, 4)
+man_on_the_high_castle.print_class()
+man_on_the_high_castle.print_class2()
+man_on_the_high_castle.print_class3()
 print(man_on_the_high_castle)
