@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 
 class Programa(ABC):
-    def __init__(self, nome, ano):
+    def __init__(self, nome: str, ano: int):
         self.__nome = nome
         self.ano = ano
 
@@ -62,6 +62,26 @@ class Serie(Programa):
         print("Serie")
 
 
+# fazer uma playlist de filmes e series
+class Playlist:
+    def __init__(self, nome, programas):
+        """Inicializa a playlist com um nome e uma lista de programas"""
+        self.nome = nome
+        self.programas = programas
+
+    def __getitem__(self, item):
+        """Pega um item da lista de programas da playlist"""
+        return self.programas[item]
+
+    def __len__(self):
+        """Retorna o tamanho da lista de programas da playlist"""
+        return len(self.programas)
+
+    def __str__(self):
+        """Função toString da playlist, retorna o nome e o tamanho da lista de programas da playlist"""
+        return f"{self.nome} - {len(self.programas)} programas"
+
+
 filme_do_pele = Filme("Filme do Pelé", 2021, 110)
 print(filme_do_pele)
 
@@ -78,12 +98,21 @@ print(type(Programa))
 
 print(f"Filme é subclasse de Programa: {issubclass(Filme, Programa)}")
 
+filmes_e_series = [filme_do_pele, man_on_the_high_castle]
 
 print("LISTA\n____________________")
 # colocar eles em uma lista
-filmes_e_series = [filme_do_pele, man_on_the_high_castle]
 for programa in filmes_e_series:
     print(
         f"{programa.nome} - {programa.ano} - {programa.duracao if hasattr(programa, 'duracao') else programa.temporadas}"
     )
     print("____________________")
+
+demolidor = Serie("Demolidor", 2016, 2)
+
+print("\nPLAYLIST\n____________________")
+# criar uma playlist
+playlist = Playlist("Fim de semana", filmes_e_series)
+print(f"Tamanho da playlist: {len(playlist)}")
+print(f"Primeiro item da playlist: {playlist[0]}")
+print(f"Playlist: {playlist}")
