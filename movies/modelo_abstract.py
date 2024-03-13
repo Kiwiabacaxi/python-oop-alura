@@ -62,7 +62,7 @@ class Serie(Programa):
         print("Serie")
 
 
-# fazer uma playlist de filmes e series
+# fazer uma playlist de filmes e series sem herdar de list
 class Playlist:
     def __init__(self, nome, programas):
         """Inicializa a playlist com um nome e uma lista de programas"""
@@ -115,5 +115,8 @@ print("\nPLAYLIST\n____________________")
 # criar uma playlist
 playlist = Playlist("Fim de semana", filmes_e_series)
 print(f"Tamanho da playlist: {len(playlist)}")
-print(f"Primeiro item da playlist: {playlist[0]}")
+print(f"Primeiro iWtem da playlist: {playlist[0]}")
 print(f"Playlist: {playlist}")
+print(
+    f"demolidor esta na playlist: {demolidor in playlist}"
+)  # isso vem por causa do __getitem__
