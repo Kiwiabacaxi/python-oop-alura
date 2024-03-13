@@ -70,3 +70,20 @@ man_on_the_high_castle.print_class()
 man_on_the_high_castle.print_class2()
 man_on_the_high_castle.print_class3()
 print(man_on_the_high_castle)
+
+# printar o tipo de objeto
+print(type(filme_do_pele))
+print(type(man_on_the_high_castle))
+print(type(Programa))
+
+print(f"Filme é subclasse de Programa: {issubclass(Filme, Programa)}")
+
+
+print("LISTA\n____________________")
+# colocar eles em uma lista
+filmes_e_series = [filme_do_pele, man_on_the_high_castle]
+for programa in filmes_e_series:
+    print(
+        f"{programa.nome} - {programa.ano} - {programa.duracao if hasattr(programa, 'duracao') else programa.temporadas}"
+    )
+    print("____________________")
